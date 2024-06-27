@@ -2,7 +2,7 @@ const Url = require('../models/urlModel');
 const crypto = require('crypto');
 
 exports.generateUrl = async (req, res) => {
-  const { originalUrl } = req.body;
+  const { originalUrl, usageLimit } = req.body;
   const hashedUrl = crypto.createHash('sha256').update(originalUrl).digest('hex').slice(0, 8);
 
   let url = await Url.findOne({ originalUrl });
@@ -10,7 +10,12 @@ exports.generateUrl = async (req, res) => {
     return res.status(200).json(url);
   }
 
-  url = new Url({ originalUrl, hashedUrl });
+  url = new Url({ 
+    originalUrl, 
+    hashedUrl, 
+    usageLimit: usageLimit !== undefined ? usageLimit : Infinity,  
+  });
+
   await url.save();
   res.status(201).json(url);
 };
@@ -20,7 +25,10 @@ exports.redirectUrl = async (req, res) => {
   const url = await Url.findOne({ hashedUrl: hash });
 
   if (url) {
-    url.clicks++;
+    if (url.usageCount >= url.usageLimit) {
+      return res.status(403).json({ error: 'URL usage limit exceeded' });
+    }
+    url.usageCount++;
     await url.save();
     return res.redirect(url.originalUrl);
   } else {

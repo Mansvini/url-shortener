@@ -4,7 +4,9 @@ const urlSchema = new mongoose.Schema({
   originalUrl: { type: String, required: true },
   hashedUrl: { type: String, required: true },
   clicks: { type: Number, default: 0 },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  usageLimit: { type: Number, default: Infinity },
+  usageCount: { type: Number, default: 0 }, 
 });
 
 module.exports = mongoose.model('Url', urlSchema);
