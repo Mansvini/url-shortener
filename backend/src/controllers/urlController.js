@@ -3,9 +3,9 @@ const crypto = require('crypto');
 
 exports.generateUrl = async (req, res) => {
   const { originalUrl, usageLimit } = req.body;
-  const hashedUrl = crypto.createHash('sha256').update(originalUrl).digest('hex').slice(0, 8);
+  const hashedUrl = crypto.createHash('sha256').update(originalUrl + req.user._id).digest('hex').slice(0, 8);
 
-  let url = await Url.findOne({ originalUrl });
+  let url = await Url.findOne({ originalUrl, user: req.user._id });
   if (url) {
     return res.status(200).json(url);
   }
@@ -13,7 +13,8 @@ exports.generateUrl = async (req, res) => {
   url = new Url({ 
     originalUrl, 
     hashedUrl, 
-    usageLimit: usageLimit !== undefined ? usageLimit : Infinity,  
+    usageLimit: usageLimit !== undefined ? usageLimit : Infinity, 
+    user: req.user._id 
   });
 
   await url.save();
