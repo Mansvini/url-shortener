@@ -24,14 +24,14 @@ Change to the backend directory:
 cd backend
 ```
 
-### 2. Install Backend Dependencies
+### 3. Install Backend Dependencies
 
 Install the required dependencies for the backend:
 ```bash
 npm install
 ```
 
-### 3. Configure Environment Variables
+### 4. Configure Environment Variables
 
 Create a `.env` file in this directory and add the following environment variables:
 ```env
@@ -40,14 +40,14 @@ MONGO_URI=mongodb://localhost:27017/urlHashingSystem
 JWT_SECRET=your_jwt_secret
 ```
 
-### 4. Start MongoDB
+### 5. Start MongoDB
 
 Ensure MongoDB is running locally. You can start MongoDB with the following command if it's installed as a service:
 ```bash
 sudo service mongod start
 ```
 
-### 5. Start the Server
+### 6. Start the Server
 
 Start the Express server:
 ```bash
@@ -84,7 +84,9 @@ The frontend application should be running on `http://localhost:3000`.
 
 ## Running Tests
 
-### 1. Configure Test Environment
+### 1. Navigate to the Backend Directory
+
+### 2. Configure Test Environment
 
 Create a `.env.test` file in the backend directory and add the following environment variables:
 ```env
@@ -93,7 +95,7 @@ MONGO_URI=mongodb://localhost:27017/urlHashingSystemTest
 JWT_SECRET=your_jwt_secret
 ```
 
-### 2. Run Tests
+### 3. Run Tests
 
 Run the tests using Jest:
 ```bash
