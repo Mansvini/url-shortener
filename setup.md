@@ -13,8 +13,8 @@
 
 Clone the repository to your local machine:
 ```bash
-git clone https://github.com/your-repository/url-hashing-system.git
-cd url-hashing-system
+git clone git@github.com:Mansvini/url-shortener.git
+cd url-shortener
 ```
 
 ### 2. Navigate to the Backend Directory
@@ -47,6 +47,8 @@ Ensure MongoDB is running locally. You can start MongoDB with the following comm
 sudo service mongod start
 ```
 
+Please troubleshoot if needed to start MongoDB on your local machine.
+
 ### 6. Start the Server
 
 Start the Express server:
@@ -58,22 +60,24 @@ The server should be running on `http://localhost:5001`.
 
 ## Frontend Setup
 
-### 1. Navigate to the Frontend Directory
+### 1. Open a new terminal window.
 
-Change to the frontend directory:
+### 2. Navigate to the Frontend Directory of this project.
+
+Navigate to the frontend directory:
 ```bash
-cd ..
+cd url-shortener
 cd frontend
 ```
 
-### 2. Install Frontend Dependencies
+### 3. Install Frontend Dependencies
 
 Install the required dependencies for the React application:
 ```bash
 npm install
 ```
 
-### 3. Start the React Application
+### 4. Start the React Application
 
 Start the React development server:
 ```bash
