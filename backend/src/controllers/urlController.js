@@ -31,7 +31,7 @@ exports.redirectUrl = async (req, res) => {
     }
     url.usageCount++;
     await url.save();
-    return res.redirect(url.originalUrl);
+    return res.redirect(302, url.originalUrl);
   } else {
     res.status(404).json({ error: 'URL not found' });
   }
