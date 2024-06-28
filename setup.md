@@ -17,7 +17,14 @@ git clone https://github.com/your-repository/url-hashing-system.git
 cd url-hashing-system
 ```
 
-### 2. Install Dependencies
+### 2. Navigate to the Backend Directory
+
+Change to the backend directory:
+```bash
+cd backend
+```
+
+### 2. Install Backend Dependencies
 
 Install the required dependencies for the backend:
 ```bash
@@ -26,7 +33,7 @@ npm install
 
 ### 3. Configure Environment Variables
 
-Create a `.env` file in the root directory and add the following environment variables:
+Create a `.env` file in this directory and add the following environment variables:
 ```env
 PORT=5001
 MONGO_URI=mongodb://localhost:27017/urlHashingSystem
@@ -55,6 +62,7 @@ The server should be running on `http://localhost:5001`.
 
 Change to the frontend directory:
 ```bash
+cd ..
 cd frontend
 ```
 
@@ -78,7 +86,7 @@ The frontend application should be running on `http://localhost:3000`.
 
 ### 1. Configure Test Environment
 
-Create a `.env.test` file in the root directory and add the following environment variables:
+Create a `.env.test` file in the backend directory and add the following environment variables:
 ```env
 PORT=5002
 MONGO_URI=mongodb://localhost:27017/urlHashingSystemTest
