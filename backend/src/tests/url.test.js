@@ -1,6 +1,5 @@
-process.env.PORT = 5004;
 const request = require('supertest');
-const app = require('../server');
+const {app, server} = require('../server');
 const Url = require('../models/urlModel');
 const User = require('../models/userModel');
 
@@ -26,6 +25,10 @@ describe('URL Generation', () => {
       });
 
     token = response.body.token;
+  });
+
+  afterAll(async () => {
+    server.close();
   });
 
   it('should generate a hashed URL', async () => {

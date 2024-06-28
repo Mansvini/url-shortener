@@ -1,11 +1,14 @@
-process.env.PORT = 5003;
 const request = require('supertest');
-const app = require('../server');
+const {app, server} = require('../server');
 const User = require('../models/userModel');
 
 describe('Authentication', () => {
   beforeEach(async () => {
     await User.deleteMany({});
+  });
+
+  afterAll(async () => {
+    server.close();
   });
 
   it('should register a new user', async () => {
