@@ -1,5 +1,5 @@
 const request = require('supertest');
-const {app, server} = require('../server');
+const {app} = require('../server');
 const Url = require('../models/urlModel');
 const User = require('../models/userModel');
 
@@ -25,10 +25,6 @@ describe('URL Generation', () => {
       });
 
     token = response.body.token;
-  });
-
-  afterAll(async () => {
-    server.close();
   });
 
   it('should generate a hashed URL', async () => {
