@@ -21,3 +21,17 @@
 .hashed-link:hover {
   color: yellowgreen;
 }
+
+form {
+  margin: 20px;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 20px;
+}
