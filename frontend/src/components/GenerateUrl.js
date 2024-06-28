@@ -9,10 +9,17 @@ const GenerateUrl = ({ token }) => {
   const handleGenerate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5001/a/generate', { 
-        originalUrl: url, 
-        usageLimit: usageLimit === '' ? Infinity : usageLimit 
-      });
+      const response = await axios.post(
+        'http://localhost:5001/generate', 
+        { 
+            originalUrl: url, 
+            usageLimit: usageLimit === '' ? Infinity : usageLimit 
+        }, 
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
       setHashedUrl(response.data.hashedUrl);
     } catch (error) {
       alert('Failed to generate URL');
@@ -29,7 +36,7 @@ const GenerateUrl = ({ token }) => {
         </form>
         {hashedUrl && (
             <div>
-                <p>Hashed URL: <a href={`http://localhost:5001/a/${hashedUrl}`} target="_blank" rel="noopener noreferrer" className="hashed-link">{`http://localhost:5001/a/${hashedUrl}`}</a></p>
+                <p>Hashed URL: <a href={`http://localhost:5001/tiny/${hashedUrl}`} target="_blank" rel="noopener noreferrer" className="hashed-link">{`http://localhost:5001/tiny/${hashedUrl}`}</a></p>
             </div>
         )}
     </>
