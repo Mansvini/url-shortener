@@ -8,7 +8,7 @@ const Login = ({ setToken }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.API_URL}api/auth/login`, { username, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, { username, password });
       setToken(response.data.token);
       alert('Login successful');
     } catch (error) {
