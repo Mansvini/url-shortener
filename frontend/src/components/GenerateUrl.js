@@ -10,7 +10,7 @@ const GenerateUrl = ({ token }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5001/generate', 
+        (process.env.API_URL+'generate'), 
         { 
             originalUrl: url, 
             usageLimit: usageLimit === '' ? Infinity : usageLimit 
@@ -36,7 +36,7 @@ const GenerateUrl = ({ token }) => {
         </form>
         {hashedUrl && (
             <div>
-                <p>Hashed URL: <a href={`http://localhost:5001/tiny/${hashedUrl}`} target="_blank" rel="noopener noreferrer" className="hashed-link">{`http://localhost:5001/tiny/${hashedUrl}`}</a></p>
+                <p>Hashed URL: <a href={`${process.env.API_URL}tiny/${hashedUrl}`} target="_blank" rel="noopener noreferrer" className="hashed-link">{`${process.env.API_URL}tiny/${hashedUrl}`}</a></p>
             </div>
         )}
     </>
