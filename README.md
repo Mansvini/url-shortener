@@ -19,8 +19,8 @@ This project implements a URL hashing system designed to manage long URLs with U
 
 3. **Deployment**:
    - Localhost for development and testing.
-   - Potential for cloud deployment (AWS) if needed, using services like Lambda, DynamoDB, API Gateway, and S3 for scalability and high availability. (I have used up my AWS free tier hence not deploying it there.)
-
+   - Deployed on **Heroku** for hosting the backend, with **MongoDB Atlas** for database management, and **Netlify** for static site.
+   
 4. **Documentation**:
    - **Swagger**: Integrated for interactive API documentation.
 
@@ -35,7 +35,7 @@ This project implements a URL hashing system designed to manage long URLs with U
 - Click tracking with privacy-aware redirection.
 - Interactive API documentation using Swagger.
 - User-friendly interface for URL generation.
-- Backend tests.
+- Comprehensive backend tests.
 
 ### Usage Count
 The system tracks the number of times a URL has been used or clicked through the `usageCount` field.

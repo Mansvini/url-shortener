@@ -1,6 +1,6 @@
 ### setup.md
 
-# Setup and Deployment Instructions
+# Local Setup Instructions
 
 ## Prerequisites
 
@@ -38,6 +38,7 @@ Create a `.env` file in this directory and add the following environment variabl
 PORT=5001
 MONGO_URI=mongodb://localhost:27017/urlHashingSystem
 JWT_SECRET=your_jwt_secret
+API_URL=http://localhost:5001
 ```
 
 ### 5. Start MongoDB
@@ -77,7 +78,14 @@ Install the required dependencies for the React application:
 npm install
 ```
 
-### 4. Start the React Application
+### 4. Configure Environment Variables
+
+Create a `.env` file in this directory and add the following environment variables:
+```env
+REACT_APP_API_URL=http://localhost:5001
+```
+
+### 5. Start the React Application
 
 Start the React development server:
 ```bash
@@ -90,7 +98,14 @@ The frontend application should be running on `http://localhost:3000`.
 
 ### 1. Navigate to the Backend Directory
 
-### 2. Configure Test Environment
+### 2. Install Backend Dependencies (if not already installed)
+
+Install the required dependencies for the backend:
+```bash
+npm install
+```
+
+### 3. Configure Test Environment
 
 Create a `.env.test` file in the backend directory and add the following environment variables:
 ```env
@@ -99,7 +114,7 @@ MONGO_URI=mongodb://localhost:27017/urlHashingSystemTest
 JWT_SECRET=your_jwt_secret
 ```
 
-### 3. Run Tests
+### 4. Run Tests
 
 Run the tests using Jest:
 ```bash
@@ -112,7 +127,7 @@ This command will execute the tests and provide a report of the results.
 
 ### 1. Register a User
 
-- Navigate to the frontend at `http://localhost:3000`.
+- Navigate to the frontend at `http://localhost:3000` or `https://urlhash.netlify.app/`.
 - Fill out the registration form with a username and password, then submit.
 
 ### 2. Log In
@@ -135,7 +150,7 @@ This command will execute the tests and provide a report of the results.
 ## Additional Notes
 
 - Ensure MongoDB is running before starting the backend server.
-- Use the Swagger documentation at `http://localhost:5001/api-docs` for detailed API endpoint information.
+- Use the Swagger documentation at `http://localhost:5001/api-docs` or `https://url-hasher-backend-a35890f98bb4.herokuapp.com/api-docs` for detailed API endpoint information.
 - The test database is separate from the development database to prevent data contamination during testing.
 
 This setup guide provides all necessary steps to deploy and use the URL hashing application, including running tests to ensure the application functions as expected.
